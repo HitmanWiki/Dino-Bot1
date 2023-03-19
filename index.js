@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 require('dotenv').config();
+const Telegraf = require('telegraf');
 const token = process.env.TELEGRAM_BOT_TOKEN
 const bot = new TelegramBot(token, {interval: 100, timeout: 20, polling: true});
 const botuname = process.env.BOTUNAME
@@ -20,7 +21,7 @@ const bizThread = 'http://boards.4chan.org/biz/thread/';
 const bizAPI = 'https://a.4cdn.org/biz/threads.json';
 const threadAPI = 'https://a.4cdn.org/biz/thread/';
 const math = require('mathjs');
-const coverCommands = ['media/global.gif', 'media/defi.gif', 'media/help.gif', 'media/hot.gif', 'media/about.jpg'];
+const coverCommands = ['media/global.gif', 'media/defi.gif', 'media/help.gif', 'media/hot.gif', 'media/about.gif'];
 const coverBog = ['media/bog1.gif', 'media/bog2.gif', 'media/bog3.gif', 'media/bog4.gif', 'media/bog5.gif'];
 
 //KEY TIMEFRAMES IN UNIX
@@ -612,8 +613,26 @@ if (uniMsg == "/about" || uniMsg == "/about@" + botuname) {
     '\n\nAvailable free-of-charge and not meant for commercial use. Modifications and self-hosting available with attribution. Image copyright belongs to their respective owners.' +
     '\n\nSupport by spreading the word, or Buy The Token:' +
     '\n\nCA: `0xBbBDDF9C6914beC7950AE6663ecA9055aACEc816`',
-    parse_mode: 'Markdown'})
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+          ],
+          [
+        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+          ]
+      ]
+      
+    },
+    
+     parse_mode: 'Markdown'})
+
+    
     };
+    
 
 
 //GET HELP
@@ -633,7 +652,22 @@ if (uniMsg == "/help" || uniMsg == "/help@" + botuname) {
     "\n/biz - `Get a random popular thread on /biz/`" +
     "\n/quote - `Get a random crypto quote`" +
     "\n/about - `Get developer and licensing info`"
-  , parse_mode: 'Markdown'})};
+  ,
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+        { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+        { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+        ],
+        [
+      { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        ]
+    ]
+    
+  },
+  parse_mode: 'Markdown'})};
 
 
 //GET QUOTE
@@ -796,6 +830,7 @@ const quoteList =
 
 '<i>' + '"Bitcoin is evil."' + '</i>' + '\n\n – Paul Krugman, Nobel-prize winning economist',
 
+
 {parse_mode: 'HTML'}
 
 ]
@@ -845,7 +880,25 @@ for (var i = 0; i < 5; i++) {
     bot.sendChatAction(msg.chat.id, 'typing');
     bot.sendPhoto(msg.chat.id, thrimgurl, { caption: ' * ' + '' + threadobj.posts[thrsrchindex].sub + '' + ' * ' +
     '\n' + threadobj.posts[thrsrchindex].replies + ' replies from ' + threadobj.posts[thrsrchindex].unique_ips + ' IDs: ' +
-    '\n[Read Full Story on /biz/]' + '(' + threadurl + ')' , parse_mode: 'Markdown' });
+    '\n[Read Full Story on /biz/]' + '(' + threadurl + ')' ,
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+          ],
+          [
+        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+          ]
+      ]
+      
+    },
+    
+    
+    
+    parse_mode: 'Markdown' });
   })
   })
 
@@ -935,7 +988,24 @@ axios.get(geckoAPI + '/global')
   '\n*Total Market Cap:* $' + tmcap +
   '\n*Total Volume (24h):* $' + tvol +
   '\n*Bitcoin Dominance:* ' + btcdom + '%' +
-  '\n*Chainlink Dominance:* ' + linkdom + '%' , parse_mode: 'Markdown'});
+  '\n*Chainlink Dominance:* ' + linkdom + '%' ,
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+        { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+        { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+        ],
+        [
+      { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        ]
+    ]
+    
+  },
+  
+    
+  parse_mode: 'Markdown'});
 });
 }
 
@@ -958,7 +1028,24 @@ if (uniMsg == "/defi" || uniMsg == "/defi@" + botuname) {
     '\n*DeFi Volume (24h):* ' + defivol +
     '\n*DeFi Dominance:* ' + defidom + '%' +
     '\n*Top DeFi Coin:* $' + defitop +
-    '\n*Top DeFi Dominance:* $' + defitopdom + '%', parse_mode: 'Markdown'});
+    '\n*Top DeFi Dominance:* $' + defitopdom + '%', 
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+          ],
+          [
+        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+          ]
+      ]
+      
+    },
+    
+    
+    parse_mode: 'Markdown'});
   });
 }
 
@@ -995,7 +1082,26 @@ for (var i = 0; i < hotobj.coins.length; i++) {
   entry[i] = "#" + market_cap_rank[i] + " | [" + name[i] + "](" + geckoWEB + id[i] + ") (" + symbol[i] + "): $" + price[i], {parse_mode: 'Markdown'};
 }
 bot.sendChatAction(msg.chat.id, 'typing');
-bot.sendAnimation(msg.chat.id, coverCommands[3], { caption: "[Top-7 Trending Coins on CoinGecko (24h):](" + geckoHOT + ")\n" + entry.join('\n'), parse_mode: 'Markdown'});
+bot.sendAnimation(msg.chat.id, coverCommands[3], { caption: "[Top-7 Trending Coins on CoinGecko (24h):](" + geckoHOT + ")\n" + entry.join('\n'),
+
+reply_markup: {
+  inline_keyboard: [
+    [
+      { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+      { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+      { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+      ],
+      [
+    { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+      ]
+  ]
+  
+},
+
+
+
+parse_mode: 'Markdown'});
 
 }));
 };
@@ -1035,8 +1141,10 @@ if (uniMsg == "/top" || uniMsg == "/top@" + botuname) {
         chgcmt = "Crabfest galore...";
       };
 console.log(toptext.join(','));
-bot.sendMessage(msg.chat.id, '*Top 25 Coins by Marketcap:* \n' + toptext.join('') + '\n *Average Change: ' + avgchg + '% | ' + chgcmt + '*', {parse_mode: 'Markdown'});
+bot.sendMessage(msg.chat.id, '*Top 25 Coins by Marketcap:* \n' + toptext.join('') + '\n *Average Change: ' + avgchg + '% | ' + chgcmt + '*',
+{parse_mode: 'Markdown'});
 }
+
 )};
 
 
@@ -1078,6 +1186,23 @@ if (cfound) {
     '\n*Liquidity:* ' + priceobj.liquidity_score +
     '\n*Alexa Rank:* ' + priceobj.public_interest_stats.alexa_rank +
     '\n\n[Read more here...](' + geckoWEB + priceobj.name + ')',
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+
+          ],
+          [
+        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+          ]
+      ]
+      
+    },
+
+
+
     parse_mode: 'Markdown'});
   });
  }
@@ -1144,7 +1269,24 @@ function GetPrice() {
 
           }
           bot.sendChatAction(msg.chat.id, 'typing');
-          bot.sendPhoto(msg.chat.id, cpriceobj[0].image, {caption: details, parse_mode: 'Markdown'});
+          bot.sendPhoto(msg.chat.id, cpriceobj[0].image, {caption: details,
+            reply_markup: {
+              inline_keyboard: [
+                [
+                  { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+                  { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
+                  { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+        
+                  ],
+                  [
+                { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+                  ]
+              ]
+              
+            },
+            
+            
+            parse_mode: 'Markdown'});
             cid = null;
             csymbol = null;
         });
