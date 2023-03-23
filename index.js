@@ -21,8 +21,8 @@ const bizThread = 'http://boards.4chan.org/biz/thread/';
 const bizAPI = 'https://a.4cdn.org/biz/threads.json';
 const threadAPI = 'https://a.4cdn.org/biz/thread/';
 const math = require('mathjs');
-const coverCommands = ['media/global.gif', 'media/defi.gif', 'media/help.gif', 'media/hot.gif', 'media/about.gif'];
-const coverBog = ['media/bog1.gif', 'media/bog2.gif', 'media/bog3.gif', 'media/bog4.gif', 'media/bog5.gif'];
+const coverCommands = ['media/global.jpg', 'media/defi.jpg', 'media/help.jpg', 'media/hot.jpg', 'media/about.gif'];
+const coverBog = ['media/bog1.jpg', 'media/bog2.jpg', 'media/bog3.jpg', 'media/bog4.jpg', 'media/bog5.jpg'];
 
 //KEY TIMEFRAMES IN UNIX
 var fminute = 60000;
@@ -622,7 +622,7 @@ if (uniMsg == "/about" || uniMsg == "/about@" + botuname) {
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
           ]
       ]
       
@@ -639,7 +639,7 @@ if (uniMsg == "/about" || uniMsg == "/about@" + botuname) {
 
 if (uniMsg == "/help" || uniMsg == "/help@" + botuname) {
   bot.sendChatAction(msg.chat.id, 'typing');
-  bot.sendAnimation(msg.chat.id, coverCommands[2], {caption :
+  bot.sendPhoto(msg.chat.id, coverCommands[2], {caption :
     "\n/i - `Get coin information e.g. /c btc`" +
     "\n/p - `Get coin market data e.g. /p ethereum`" +
     "\n/ph | /pd | /pw | /pm | /pq | /ps | /py - `Get price & volume chart at various time scales`" +
@@ -662,7 +662,7 @@ if (uniMsg == "/help" || uniMsg == "/help@" + botuname) {
 
         ],
         [
-      { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+      { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
         ]
     ]
     
@@ -837,7 +837,7 @@ const quoteList =
 
 if (uniMsg == "/quote" || uniMsg == "/quote@" + botuname) {
 bot.sendChatAction(msg.chat.id, 'typing');
-bot.sendAnimation(msg.chat.id, coverBog[Math.round(Math.random(coverBog.length))], { caption: quoteList[Math.round(Math.random(quoteList.length))] , parse_mode: 'HTML' });
+bot.sendPhoto(msg.chat.id, coverBog[Math.round(Math.random(coverBog.length))], { caption: quoteList[Math.round(Math.random(quoteList.length))] , parse_mode: 'HTML' });
 };
 
 //GET BIZ THREADS
@@ -890,7 +890,7 @@ for (var i = 0; i < 5; i++) {
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
           ]
       ]
       
@@ -979,7 +979,7 @@ axios.get(geckoAPI + '/global')
   var btcdom = respobj.data.market_cap_percentage.btc.toFixed(2);
   var linkdom = (linkmcap / respobj.data.total_market_cap.usd).toFixed(4);
   bot.sendChatAction(msg.chat.id, 'typing');
-  bot.sendAnimation(msg.chat.id, coverCommands[0], { caption: '*Global Market Data - Crypto:*' +
+  bot.sendPhoto(msg.chat.id, coverCommands[0], { caption: '*Global Market Data - Crypto:*' +
   '\n*Total Coins:* ' + totalcoins +
   '\n*Upcoming ICOs:* ' + upcico +
   '\n*Ongoing ICOs:* ' + ongico +
@@ -998,7 +998,7 @@ axios.get(geckoAPI + '/global')
 
         ],
         [
-      { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+      { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
         ]
     ]
     
@@ -1021,7 +1021,7 @@ if (uniMsg == "/defi" || uniMsg == "/defi@" + botuname) {
     var defitop = respobj.data.top_coin_name;
     var defitopdom = Number(respobj.data.top_coin_defi_dominance).toFixed(2);
     bot.sendChatAction(msg.chat.id, 'typing');
-    bot.sendAnimation(msg.chat.id, coverCommands[1], { caption: '*Global Market Data - DeFi:*' +
+    bot.sendPhoto(msg.chat.id, coverCommands[1], { caption: '*Global Market Data - DeFi:*' +
     '\n*DeFi Market Cap:* ' + defimcap +
     '\n*ETH Market Cap:* ' + ethmcap +
     '\n*DeFi to ETH:* ' + defieth + '%' +
@@ -1038,7 +1038,7 @@ if (uniMsg == "/defi" || uniMsg == "/defi@" + botuname) {
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
           ]
       ]
       
@@ -1082,7 +1082,7 @@ for (var i = 0; i < hotobj.coins.length; i++) {
   entry[i] = "#" + market_cap_rank[i] + " | [" + name[i] + "](" + geckoWEB + id[i] + ") (" + symbol[i] + "): $" + price[i], {parse_mode: 'Markdown'};
 }
 bot.sendChatAction(msg.chat.id, 'typing');
-bot.sendAnimation(msg.chat.id, coverCommands[3], { caption: "[Top-7 Trending Coins on CoinGecko (24h):](" + geckoHOT + ")\n" + entry.join('\n'),
+bot.sendPhoto(msg.chat.id, coverCommands[3], { caption: "[Top-7 Trending Coins on CoinGecko (24h):](" + geckoHOT + ")\n" + entry.join('\n'),
 
 reply_markup: {
   inline_keyboard: [
@@ -1093,7 +1093,7 @@ reply_markup: {
 
       ],
       [
-    { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+    { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
       ]
   ]
   
@@ -1195,7 +1195,7 @@ if (cfound) {
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
           ]
       ]
       
@@ -1279,7 +1279,7 @@ function GetPrice() {
         
                   ],
                   [
-                { text: 'Advertise Here',url: 't.me/Hyperbolic1', callback_data: 'Advertise'}
+                { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
                   ]
               ]
               
