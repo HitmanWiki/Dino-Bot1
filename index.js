@@ -92,6 +92,11 @@ async function loadCoins() {
 
 loadCoins();
 
+// Telegram /start command
+bot.onText(/\/start/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, "Easter Shib-To The Moon 🚀🚀🚀\n\nHey there! I am a E$hib_Informer_Bot Powered By .\n\nTo Interact go to Menu and send me your command or type /help to get the command list and get Going!!!! " ,{parse_mode : "HTML"});
+});
 
 
 //START MESSAGE LISTENER
@@ -610,19 +615,19 @@ bot.on('message', (msg) => {
 if (uniMsg == "/about" || uniMsg == "/about@" + botuname) {
   bot.sendChatAction(msg.chat.id, 'typing');
   bot.sendAnimation(msg.chat.id, coverCommands[4], {caption: '*This bot is developed by:* [Dino_Egg](https://dinoegg.org/)' +
-    '\n\nAvailable free-of-charge and not meant for commercial use. Modifications and self-hosting available with attribution. Image copyright belongs to their respective owners.' +
+    '\n\nEaster Shib is the Next 100x Moon Token, With Utilities to Benefit the Community at every whelm ' +
     '\n\nSupport by spreading the word, or Buy The Token:' +
-    '\n\nCA: `0xBbBDDF9C6914beC7950AE6663ecA9055aACEc816`',
+    '\n\nCA: `0xa7d627c329d53e4199bc20d176f2bdee9f27d4c2`',
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
           { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+          { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
           ]
       ]
       
@@ -648,7 +653,7 @@ if (uniMsg == "/help" || uniMsg == "/help@" + botuname) {
     "\n/hot - `Get the Top 7 Trending Coins`" +
     "\n/crypto - `Get global crypto market data`" +
     "\n/defi - `Get global DeFi market data`" +
-    "\n/wjk - `Get key metrics about the Wojak Index`" +
+    // "\n/wjk - `Get key metrics about the Wojak Index`" +
     "\n/biz - `Get a random popular thread on /biz/`" +
     "\n/quote - `Get a random crypto quote`" +
     "\n/about - `Get developer and licensing info`"
@@ -656,17 +661,18 @@ if (uniMsg == "/help" || uniMsg == "/help@" + botuname) {
   reply_markup: {
     inline_keyboard: [
       [
-        { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+        { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
         { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-        { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+        { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
         ],
         [
-      { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+      { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
         ]
     ]
     
   },
+  
   parse_mode: 'Markdown'})};
 
 
@@ -884,13 +890,13 @@ for (var i = 0; i < 5; i++) {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
           { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+          { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
           ]
       ]
       
@@ -987,22 +993,23 @@ axios.get(geckoAPI + '/global')
   '\n*Markets:* ' + mkts +
   '\n*Total Market Cap:* $' + tmcap +
   '\n*Total Volume (24h):* $' + tvol +
-  '\n*Bitcoin Dominance:* ' + btcdom + '%' +
-  '\n*Chainlink Dominance:* ' + linkdom + '%' ,
+  '\n*Bitcoin Dominance:* ' + btcdom + '%' ,
+  // '\n*Chainlink Dominance:* ' + linkdom + '%' ,
   reply_markup: {
     inline_keyboard: [
       [
-        { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+        { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
         { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-        { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+        { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
         ],
         [
-      { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+      { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
         ]
     ]
     
   },
+  
   
     
   parse_mode: 'Markdown'});
@@ -1032,18 +1039,18 @@ if (uniMsg == "/defi" || uniMsg == "/defi@" + botuname) {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
           { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+          { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
           ]
       ]
       
     },
-    
+        
     
     parse_mode: 'Markdown'});
   });
@@ -1087,17 +1094,18 @@ bot.sendPhoto(msg.chat.id, coverCommands[3], { caption: "[Top-7 Trending Coins o
 reply_markup: {
   inline_keyboard: [
     [
-      { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+      { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
       { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-      { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+      { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
       ],
       [
-    { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+    { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
       ]
   ]
   
 },
+
 
 
 
@@ -1189,17 +1197,18 @@ if (cfound) {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+          { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
           { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-          { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+          { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
 
           ],
           [
-        { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+        { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
           ]
       ]
       
     },
+    
 
 
 
@@ -1273,18 +1282,18 @@ function GetPrice() {
             reply_markup: {
               inline_keyboard: [
                 [
-                  { text: 'Shibarium',url: 'shibariumswap.info', callback_data: 'Shibarium'},
+                  { text: 'Easter Shib',url: 'eastershib.com', callback_data: 'EasterShib'},
                   { text: 'Dino Egg',url: 'dinoegg.org', callback_data: 'Dino'},
-                  { text: 'Proxima',url: 'alphacentaurilaunchpad.com/', callback_data: 'Proxima'}
+                  { text: 'Chart',url: 'https://www.dextools.io/app/en/ether/pair-explorer/0x010a09b353ed496bda8a70e51e38487f975e4053', callback_data: 'Proxima'}
         
                   ],
                   [
-                { text: 'Advertise Here',url: 't.me/', callback_data: 'Advertise'}
+                { text: 'Advertise Here',url: 't.me/NorthpoleHood', callback_data: 'Advertise'}
                   ]
               ]
               
             },
-            
+             
             
             parse_mode: 'Markdown'});
             cid = null;
